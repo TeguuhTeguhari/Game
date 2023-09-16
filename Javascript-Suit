@@ -1,0 +1,77 @@
+//sapaan awal
+	var namaPengunjung = prompt("siapa nama anda?");
+	alert("Selamat bermain "+ namaPengunjung + ". Nyawa awal untukmu dan komputer dalam permainan ini ada 3. Yang kehabisan nyawa terlebih dahulu, ialah yang kalah. Semoga berhasil..");
+
+//masuk ke permainan
+var restart = true,
+				nyawaPlayer = 3,
+				nyawaComp = 3;
+while(restart === true && nyawaPlayer !== 0) {
+	
+	//menangkap pilihan player
+	var player = " ";
+	player = prompt("Silahkan pilih. Gunting? Batu? Atau kertas?");
+	
+	//membangkitkan bilangan random untuk pilihan computer
+	var comp = Math.random();
+	
+	if(comp < 0.334) {
+		comp = "gunting";
+	} else if(comp > 0.334 && comp < 0.667) {
+		comp = "batu";
+	} else {
+		comp = "kertas";
+	}
+	
+	//rules
+	var hasil = "";
+	
+	if(comp === player) {
+		hasil = "SERI!";
+	} else if(player === "gunting") {
+		if(comp === "batu") {
+			hasil = "KALAH..";
+		} else {
+			hasil = "MENANG!!";
+		}
+	} else if(player === "batu") {
+		if(comp === "kertas") {
+			hasil = "KALAH..";
+		} else {
+			hasil = "MENANG!!";
+		}
+	} else if(player === "kertas") {
+		if(comp === "gunting") {
+			hasil = "KALAH..";
+		} else {
+			hasil = "MENANG!!";
+		}
+	} else {
+		hasil = "anda tereliminasi. 				Maaf, itu karena anda tidak mengikuti aturan permainan ini dengan benar. Mohon jangan memilih selain gunting, batu, dan kertas.";
+		restart = false;
+	}
+	
+	//hasil pertandingan
+	alert("Anda memilih " + player + ". Sedangkan komputer memilih " + comp + ". Maka hasil pertandingan ini adalah " + hasil)
+	
+	if(hasil === 'KALAH..') {
+		alert('Nyawamu berkurang satu. Semoga beruntung di percobaan selanjutnya.');
+		nyawaPlayer--;
+	} else if(hasil === 'MENANG!!') {
+	alert('Yeay! Nyawa komputer berkurang satu. Bantai sampai habis.');
+	nyawaComp--;
+	} else if(hasil === 'SERI!'){
+	alert('Karena seri, baik nyawamu maupun komputer tidak berkurang. Pastikan kamu menang di kesempatan berikutnya.');
+	} else {}
+	
+	if(nyawaPlayer === 0) {
+		alert('Haduu.. \nKamu kehabisan nyawa. Kamu dinyatakan kalah.');
+	} else if(nyawaComp === 0) {
+		alert('Selamat.. \nKomputer telah kehabisan nyawa. Kamu dinyatakan menang.');
+		restart = false;
+	} else {}
+}
+
+
+//salam perpisahan
+alert("Terima kasih " + namaPengunjung + ", karena sudah mau mencoba. Sampai jumpa..");
