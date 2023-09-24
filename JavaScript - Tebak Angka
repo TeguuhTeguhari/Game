@@ -23,7 +23,7 @@ while(replay) {
   } else {
 	  alert('Cukup masukkan nomor dari level yang anda pilih saja(1-3).')
   }
-	}//penutup while repick
+	}
 	repick = true;
 	
 	//Deklarasi mulainya permainan
@@ -63,22 +63,22 @@ while(replay) {
  		var restart2 = true;
  		
  		//rules
- 		var hasil = '';
+ 		var result = '';
 	 if(playerGuess === mysteryNumber) {
-		 hasil = 'BENAR';
+		 result = 'BENAR';
 	 } else if(playerGuess < mysteryNumber) {
-		 hasil = 'TERLALU KECIL';
+		 result = 'TERLALU KECIL';
 	 } else if(playerGuess > mysteryNumber) {
-			hasil = 'TERLALU BESAR';
+			result = 'TERLALU BESAR';
 		} else {
-			hasil = 'Jawaban anda tidak sesuai peraturan, anda tereliminasi. Mohon jangan memilih selain angka 1-10.';
+			result = 'Jawaban anda tidak sesuai peraturan, anda tereliminasi. Mohon jangan memilih selain angka 1-10.';
 			restart = false;
 		}
 		
 		//menampilkan hasil tebakan
 		while(lives !== 0 && restart2 === true) {
-		if(hasil === 'BENAR') {
-			alert('Selamat.. \nJawabanmu ' + hasil);
+		if(result === 'BENAR') {
+			alert('Selamat.. \nJawabanmu ' + result);
 			restart = confirm('Mau nyoba lagi?');
 			if(restart === true) {
 				alert('Gass...');
@@ -88,8 +88,8 @@ while(replay) {
 				restart = false;
 				replay = false;
 			}
-		} else if(hasil === 'TERLALU KECIL' || hasil === 'TERLALU BESAR') {
-			alert('Wadooh.. \nJawabanmu ' + hasil + '. Nyawamu berkurang satu.');
+		} else if(result === 'TERLALU KECIL' || result === 'TERLALU BESAR') {
+			alert('Wadooh.. \nJawabanmu ' + result + '. Nyawamu berkurang satu.');
 			lives--;
 			if(lives !== 0) {
 				playerGuess = prompt('Coba tebak lagi');
@@ -105,12 +105,9 @@ while(replay) {
 		
 		restart2 = false;
 		
-		}//penutup while restart2
-			
-		
- 	}//penutup while restart
-	
-}//penutup while replay
+		}
+ 	}
+}
 
 //Salam perpisahan
 alert('Terima kasih telah mencoba ' + playerName + '. Sampai jumpa lagi.');
