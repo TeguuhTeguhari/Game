@@ -1,5 +1,8 @@
 //SAPAAN AWAL
-var playerName = prompt('Hai.. Selamat datang di permainan tebak angka, \nSiapa nama anda?');
+var playerName = '';
+while( playerName === '' || playerName === null ) {
+	playerName = prompt('Hai.. Selamat datang di permainan tebak angka, \nSiapa nama anda?');
+}
 
 var lives,
 	level,
@@ -27,7 +30,7 @@ while(replay) {
 	repick = true;
 	
 	//Deklarasi mulainya permainan
-	alert('Silahkan bermain tebak angka ' + playerName + '. Kesempatan menebak anda ada ' + nyawa + '. Harap menebak dengan benar sebelum nyawa anda habis.');
+	alert('Silahkan bermain tebak angka ' + playerName + '. Kesempatan menebak anda ada ' + lives + '. Harap menebak dengan benar sebelum nyawa anda habis.');
 	
 	//membangkitkan bilangan acak prima
  var mysteryNumber = Math.random();
@@ -97,7 +100,7 @@ while(replay) {
 		} else {}
 		 
 		if(lives === 0) {
-			alert('Duhduhduh!! \nKamu kehabisan nyawa..');
+			alert('Duhduhduh!! \nKamu kehabisan nyawa.. Jawabannya adalah ' + mysteryNumber);
 			alert('Kamu dinyatakan kalah.');
 			restart = false;
 			replay = confirm('Mau maen lagi?');
